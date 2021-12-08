@@ -49,6 +49,8 @@ class ProductsController extends Controller
     public function show($id)
     {
         //
+        $product=Product::findOrFail($id);
+        return  view('products.show')->with(['product'=>$product]);
     }
 
     /**
@@ -60,6 +62,8 @@ class ProductsController extends Controller
     public function edit($id)
     {
         //
+        $product=Product::findOrFail($id);
+        return  view('products.edit')->with(['product'=>$product]);
     }
 
     /**
@@ -72,6 +76,22 @@ class ProductsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // 先調出 $id 的 Player Model物件
+        $product = Product::findOrFail($id);
+        // 修改(資料來自於表單)
+        $product->transaction_date = $request->input('transaction_date');
+        $product->product = $request->input('product');
+        $product->mid = $request->input('mid');
+        $product->high_price = $request->input('high_price');
+        $product->midium_price = $request->input('midium_price');
+        $product->low_price = $request->input('low_price');
+        $product->average_price = $request->input('average_price');
+        $product->trading_volume = $request->input('trading_volume');
+
+        // 正是儲存至 DBMS (Database Management System = MySQL)
+        $product->save();
+
+        return redirect('products'); // 觸發 /teams 路由(用 get 方法)
     }
 
     /**

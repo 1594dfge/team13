@@ -49,6 +49,8 @@ class MarketsController extends Controller
     public function show($id)
     {
         //
+        $market=Market::findOrFail($id);
+        return  view('markets.show')->with(['market'=>$market]);
     }
 
     /**
@@ -60,6 +62,8 @@ class MarketsController extends Controller
     public function edit($id)
     {
         //
+        $market=Market::findOrFail($id);
+        return  view('markets.edit')->with(['market'=>$market]);
     }
 
     /**
@@ -72,6 +76,17 @@ class MarketsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // 先調出 $id 的 Player Model物件
+        $market = Market::findOrFail($id);
+        // 修改(資料來自於表單)
+        $market->market = $request->input('market');
+        $market->zone = $request->input('zone');
+        $market->address = $request->input('address');
+
+        // 正是儲存至 DBMS (Database Management System = MySQL)
+        $market->save();
+
+        return redirect('markets'); // 觸發 /teams 路由(用 get 方法)
     }
 
     /**

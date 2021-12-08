@@ -11,6 +11,8 @@
         <th>市場</th>
         <th>區別</th>
         <th>地址</th>
+        <th>操作1</th>
+        <th>操作2</th>
     </tr>
     @foreach($markets as $market)
         <tr>
@@ -21,6 +23,11 @@
             <td>
                 <a href="markets/{{ $market->id }}">
                     詳細
+                </a>
+            </td>
+            <td>
+                <a href="markets/{{ $market->id }}/edit">
+                    修改
                 </a>
             </td>
         </tr>
