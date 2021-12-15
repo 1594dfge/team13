@@ -19,6 +19,7 @@
         <th>操作1</th>
         <th>操作2</th>
         <th>操作3</th>
+        <th>操作4</th>
     </tr>
     @foreach($products as $product)
         <tr>
@@ -47,6 +48,11 @@
                     @method('delete')
                     <input type="submit" value="刪除"/>
                 </form>
+            </td>
+            <td>
+                <a href="products/create">
+                    新增
+                </a>
             </td>
         </tr>
     @endforeach

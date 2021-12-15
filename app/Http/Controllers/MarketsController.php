@@ -27,6 +27,7 @@ class MarketsController extends Controller
     public function create()
     {
         //
+        return view('markets.create');
     }
 
     /**
@@ -38,6 +39,15 @@ class MarketsController extends Controller
     public function store(Request $request)
     {
         //
+        $market = $request->input('market');
+        $zone = $request->input('zone');
+        $address = $request->input('address');
+        Market::create([
+            'market' => $market,
+            'zone' => $zone,
+            'address' => $address
+        ]);
+        return redirect('markets'); // 觸發 /teams 路由(用 get 方法)
     }
 
     /**
