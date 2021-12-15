@@ -98,5 +98,8 @@ class MarketsController extends Controller
     public function destroy($id)
     {
         //
+        $market = Market::findOrFail($id);
+        $market->delete();
+        return redirect('markets'); // 觸發 /teams 路由(用 get 方法)
     }
 }

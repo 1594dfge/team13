@@ -103,5 +103,8 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         //
+        $product = Product::findOrFail($id);
+        $product->delete();
+        return redirect('products'); // 觸發 /teams 路由(用 get 方法)
     }
 }
