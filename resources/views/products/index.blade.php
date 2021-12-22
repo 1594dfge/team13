@@ -5,6 +5,11 @@
 </head>
 <body>
 <h1>顯示所有農產品資料 </h1>
+<h2>
+    <a href="{{route('markets.index')}}">
+        所有市場資料
+    </a>
+</h2>
 <table border="1">
     <tr>
         <th>編號</th>

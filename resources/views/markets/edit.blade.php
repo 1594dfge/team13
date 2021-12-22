@@ -5,6 +5,11 @@
 </head>
 <body>
 <h1>顯示單一市場的編輯表單 </h1>
+<h2>
+    <a href="{{route('markets.index')}}">
+        所有市場資料
+    </a>
+</h2>
 <form method="post" action="/markets/{{$market->id}}">
     @csrf
     @method('put')
@@ -118,11 +123,6 @@
                 <select name="market" required>
                     @if($market->address=="台北市萬華區萬大路533號")
                         <option value="台北市萬華區萬大路533號" selected>台北市萬華區萬大路533號</option>
-                    @else
-                        <option value="台北市萬華區萬大路533號">台北市萬華區萬大路533號</option>
-                    @endif
-                    @if($market->address=="台北市萬華區萬大路533號")
-                         <option value="台北市萬華區萬大路533號" selected>台北市萬華區萬大路533號</option>
                     @else
                         <option value="台北市萬華區萬大路533號">台北市萬華區萬大路533號</option>
                     @endif

@@ -5,6 +5,11 @@
 </head>
 <body>
 <h1>顯示市場的新增表單 </h1>
+<h2>
+    <a href="{{route('markets.index')}}">
+        所有市場資料
+    </a>
+</h2>
 <form method="post" action="/markets">
     @csrf
     <table border="1">
@@ -43,7 +48,6 @@
             <td>地址</td>
             <td>
                 <select name="address" required>
-                    <option value="台北市萬華區萬大路533號">台北市萬華區萬大路533號</option>
                     <option value="台北市萬華區萬大路533號">台北市萬華區萬大路533號</option>
                     <option value="新北市板橋區板城路1000號">新北市板橋區板城路1000號</option>
                     <option value="新北市三重區中正北路111號">新北市三重區中正北路111號</option>

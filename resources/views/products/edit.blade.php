@@ -5,6 +5,11 @@
 </head>
 <body>
 <h1>顯示單一農產品的編輯表單 </h1>
+<h2>
+    <a href="{{route('products.index')}}">
+        所有農產品資料
+    </a>
+</h2>
 <form method="post" action="/products/{{$product->id}}">
     @csrf
     @method('put')

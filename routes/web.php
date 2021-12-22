@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-#Route::get('/', function () {
+Route::get('/', function () {
     #return view('welcome');
-#    return "hello HELLO";
-#});
+    #return "hello HELLO";
+    return redirect('products');
+});
 
 Route::resource("products",ProductsController::class);
 Route::resource("markets",MarketsController::class);

@@ -15,7 +15,7 @@ class ProductsController extends Controller
     public function index()
     {
         //
-        $products=Product::all();
+        $products=Product::all()->sortBy('mid',SORT_REGULAR,false);
         return view('products.index')->with(['products'=>$products]);
     }
 
