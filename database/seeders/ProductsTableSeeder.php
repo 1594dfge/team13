@@ -24,20 +24,23 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        $product=$this->generateRandomProduct();
-        $high_price=(float)rand(701,1000)+(float)$this->randomFloat();
-        $midium_price=(float)rand(301,700)+(float)$this->randomFloat();
-        $low_price=(float)rand(1,301)+(float)$this->randomFloat();
-        $average_price=(float)number_format(($high_price+$midium_price+$low_price)/3.0,1);
-        DB::table('products')->insert([
-            'transaction_date'=>Carbon::now()->subRealDay(rand(0,31)),
-            'product'=>$product,
-            'mid'=>rand(1, 13),
-            'high_price'=>$high_price,
-            'midium_price'=>$midium_price,
-            'low_price'=>$low_price,
-            'average_price'=>$average_price,
-            'trading_volume'=>rand(1,10000),
-        ]);
+        for ($i=0; $i<100; $i++)
+        {
+            $product=$this->generateRandomProduct();
+            $high_price=(float)rand(701,1000)+(float)$this->randomFloat();
+            $midium_price=(float)rand(301,700)+(float)$this->randomFloat();
+            $low_price=(float)rand(1,301)+(float)$this->randomFloat();
+            $average_price=(float)number_format(($high_price+$midium_price+$low_price)/3.0,1);
+            DB::table('products')->insert([
+                'transaction_date'=>Carbon::now()->subRealDay(rand(0,31)),
+                'product'=>$product,
+                'mid'=>rand(1, 13),
+                'high_price'=>$high_price,
+                'midium_price'=>$midium_price,
+                'low_price'=>$low_price,
+                'average_price'=>$average_price,
+                'trading_volume'=>rand(1,10000),
+            ]);
+        }
     }
 }

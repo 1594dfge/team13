@@ -13,4 +13,9 @@ class Market extends Model
         'zone',
         'address'
     ];
+
+    public function products()
+    {
+        return $this->hasMany('App\Models\Product','mid');
+    }
 }

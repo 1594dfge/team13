@@ -32,11 +32,13 @@ class MarketsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        DB::table('markets')->insert([
-            'market'=>$this->generateRandomMarket(),
-            'zone'=>$this->generateRandomZone(),
-            'address'=>$this->generateRandomAddress()
-        ]);
+        for ($i=0; $i<13; $i++)
+        {
+            DB::table('markets')->insert([
+                'market'=>$this->generateRandomMarket(),
+                'zone'=>$this->generateRandomZone(),
+                'address'=>$this->generateRandomAddress()
+            ]);
+        }
     }
 }
