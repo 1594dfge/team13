@@ -29,8 +29,15 @@
             </td>
         </tr>
         <tr>
+
             <td>交易市場</td>
-            <td><input type="text" name="mid"/></td>
+            <td>
+                <select name="mid" required>
+                    @foreach($markets as $market)
+                    <option value="{{$market->id}}">{{$market->address}}</option>
+                    @endforeach
+                </select>
+            </td>
         </tr>
         <tr>
             <td>上價</td>

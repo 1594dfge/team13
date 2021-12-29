@@ -51,7 +51,19 @@
         </tr>
         <tr>
             <td>交易市場</td>
-            <td><input type="text" name="mid" value="{{ $product->mid }}"/></td>
+            <td>
+                <select name="mid" required>
+                    {{$i=1}}
+                    @foreach($markets as $market)
+                        @if($product->mid==$i)
+                            <option value="{{$i}}" selected>{{$markets[$i-1]->address}}</option>
+                        @else
+                            <option value="{{$i}}">{{$markets[$i-1]->address}}</option>
+                        @endif
+                        {{$i++}}
+                    @endforeach
+                </select>
+            </td>
         </tr>
         <tr>
             <td>上價</td>
