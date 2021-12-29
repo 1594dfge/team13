@@ -9,6 +9,12 @@
     <a href="{{route('markets.index')}}">
         所有市場資料
     </a>
+    <br>
+    <a href="{{ route('products.index') }}">所有農產品</a>
+    <a href="{{ route('products.grapes') }}">巨峰葡萄</a>
+    <a href="{{ route('products.apples') }}">蘋果-惠</a>
+    <a href="{{ route('products.sugarapples') }}">釋迦</a>
+    <a href="{{ route('products.bananas') }}">香蕉</a>
 </h2>
 <table border="1">
     <tr>

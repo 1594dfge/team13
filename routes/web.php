@@ -21,5 +21,19 @@ Route::get('/', function () {
     return redirect('products');
 });
 
+// 北區市場查詢
+Route::get('markets/north', [MarketsController::class, 'north'])->name('markets.north');
+// 東區市場查詢
+Route::get('markets/east', [MarketsController::class, 'east'])->name('markets.east');
+// 中區市場查詢
+Route::get('markets/west', [MarketsController::class, 'west'])->name('markets.west');
+// 南區市場查詢
+Route::get('markets/south', [MarketsController::class, 'south'])->name('markets.south');
+
+Route::get('products/grapes', [ProductsController::class, 'grapes'])->name('products.grapes');
+Route::get('products/apples', [ProductsController::class, 'apples'])->name('products.apples');
+Route::get('products/sugarapples', [ProductsController::class, 'sugarapples'])->name('products.sugarapples');
+Route::get('products/bananas', [ProductsController::class, 'bananas'])->name('products.bananas');
+
 Route::resource("products",ProductsController::class);
 Route::resource("markets",MarketsController::class);

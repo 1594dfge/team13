@@ -112,4 +112,28 @@ class MarketsController extends Controller
         $market->delete();
         return redirect('markets'); // 觸發 /teams 路由(用 get 方法)
     }
+
+    public function north()
+    {
+        $markets = Market::zone('北區')->get();
+        return view('markets.index', ['markets'=>$markets]);
+    }
+
+    public function east()
+    {
+        $markets = Market::zone('東區')->get();
+        return view('markets.index', ['markets'=>$markets]);
+    }
+
+    public function west()
+    {
+        $markets = Market::zone('中區')->get();
+        return view('markets.index', ['markets'=>$markets]);
+    }
+
+    public function south()
+    {
+        $markets = Market::zone('南區')->get();
+        return view('markets.index', ['markets'=>$markets]);
+    }
 }

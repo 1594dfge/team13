@@ -9,6 +9,12 @@
     <a href="{{route('products.index')}}">
         所有農產品資料
     </a>
+    <br>
+    <a href="{{ route('markets.index') }}">所有市場</a>
+    <a href="{{ route('markets.north') }}">北區市場</a>
+    <a href="{{ route('markets.east') }}">東區市場</a>
+    <a href="{{ route('markets.west') }}">中區市場</a>
+    <a href="{{ route('markets.south') }}">南區市場</a>
 </h2>
 <table border="1">
     <tr>

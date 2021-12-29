@@ -18,4 +18,9 @@ class Market extends Model
     {
         return $this->hasMany('App\Models\Product','mid');
     }
+
+    public function scopeZone($query, $zone)
+    {
+        $query->where('zone', '=', $zone);
+    }
 }

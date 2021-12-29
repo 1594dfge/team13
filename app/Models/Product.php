@@ -23,4 +23,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\Market','mid','id');
     }
+
+    public function scopeProduct($query, $product)
+    {
+        $query->where('product', '=', $product)->orderBy('average_price','desc');
+    }
 }

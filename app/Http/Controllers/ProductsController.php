@@ -130,4 +130,29 @@ class ProductsController extends Controller
         $product->delete();
         return redirect('products'); // 觸發 /teams 路由(用 get 方法)
     }
+
+    public function grapes()
+    {
+        $products = Product::product('巨峰葡萄')->get();
+        return view('products.index', ['products'=>$products]);
+    }
+
+    public function apples()
+    {
+        $products = Product::product('蘋果-惠')->get();
+        return view('products.index', ['products'=>$products]);
+    }
+
+    public function sugarapples()
+    {
+        $products = Product::product('釋迦')->get();
+        return view('products.index', ['products'=>$products]);
+    }
+
+    public function bananas()
+    {
+        $products = Product::product('香蕉')->get();
+        return view('products.index', ['products'=>$products]);
+    }
+
 }
