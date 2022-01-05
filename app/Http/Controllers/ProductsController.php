@@ -29,7 +29,8 @@ class ProductsController extends Controller
     {
         //
         $markets=Market::all();
-        return view('products.create')->with(['markets'=>$markets]);
+        $allproducts=Product::Allproducts()->get();
+        return view('products.create')->with(['markets'=>$markets,'allproducts'=>$allproducts]);
     }
 
     /**
@@ -89,7 +90,8 @@ class ProductsController extends Controller
         //
         $product=Product::findOrFail($id);
         $markets=Market::all();
-        return  view('products.edit')->with(['product'=>$product,'markets'=>$markets]);
+        $allproducts=Product::Allproducts()->get();
+        return  view('products.edit')->with(['product'=>$product,'markets'=>$markets,'allproducts'=>$allproducts]);
     }
 
     /**

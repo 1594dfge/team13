@@ -21,10 +21,9 @@
             <td>農產品種類</td>
             <td>
                 <select name="product" required>
-                    <option value="香蕉">香蕉</option>
-                    <option value="蘋果-惠">蘋果-惠</option>
-                    <option value="釋迦">釋迦</option>
-                    <option value="巨峰葡萄">巨峰葡萄</option>
+                    @foreach($allproducts as $allproduct)
+                        <option value="{{$allproduct->Product}}">{{$allproduct->Product}}</option>
+                    @endforeach
                 </select>
             </td>
         </tr>

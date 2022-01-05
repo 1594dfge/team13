@@ -26,26 +26,13 @@
             <td>農產品種類</td>
             <td>
                 <select name="product" required>
-                    @if($product->product=="香蕉")
-                        <option value="香蕉" selected>香蕉</option>
-                    @else
-                        <option value="香蕉">香蕉</option>
-                    @endif
-                    @if($product->product=="蘋果-惠")
-                        <option value="蘋果-惠" selected>蘋果-惠</option>
-                    @else
-                        <option value="蘋果-惠">蘋果-惠</option>
-                    @endif
-                    @if($product->product=="釋迦")
-                        <option value="釋迦" selected>釋迦</option>
-                    @else
-                        <option value="釋迦">釋迦</option>
-                    @endif
-                    @if($product->product=="巨峰葡萄")
-                        <option value="巨峰葡萄" selected>巨峰葡萄</option>
-                    @else
-                        <option value="巨峰葡萄">巨峰葡萄</option>
-                    @endif
+                    @foreach($allproducts as $allproduct)
+                        @if($product->product==$allproduct->Product)
+                            <option value="{{$allproduct->Product}}" selected>{{$allproduct->Product}}</option>
+                        @else
+                            <option value="{{$allproduct->Product}}">{{$allproduct->Product}}</option>
+                        @endif
+                    @endforeach
                 </select>
             </td>
         </tr>

@@ -28,4 +28,9 @@ class Product extends Model
     {
         $query->where('product', '=', $product)->orderBy('average_price','desc');
     }
+
+    public function scopeAllproducts($query)
+    {
+        $query->select('Product')->groupBy('product');
+    }
 }
