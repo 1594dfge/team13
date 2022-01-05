@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Market;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,8 @@ class ProductsController extends Controller
     public function create()
     {
         //
-        return view('products.create');
+        $markets=Market::all();
+        return view('products.create')->with(['markets'=>$markets]);
     }
 
     /**
@@ -86,7 +88,8 @@ class ProductsController extends Controller
     {
         //
         $product=Product::findOrFail($id);
-        return  view('products.edit')->with(['product'=>$product]);
+        $markets=Market::all();
+        return  view('products.edit')->with(['product'=>$product,'markets'=>$markets]);
     }
 
     /**
