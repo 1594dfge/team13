@@ -136,4 +136,54 @@ class MarketsController extends Controller
         $markets = Market::zone('南區')->get();
         return view('markets.index', ['markets'=>$markets]);
     }
+
+    public function api_markets()
+    {
+        return Market::all();
+    }
+
+    public function api_update(Request $request)
+    {
+        $market = Market::find($request->input('id'));
+        if ($market == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+
+        $market->market = $request->input('market');
+        $market->zone = $request->input('zone');
+        $market->address = $request->input('address');
+        if ($market->save())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        } else {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+    }
+
+    public function api_delete(Request $request)
+    {
+        $market = Market::find($request->input('id'));
+
+        if ($market == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+
+        if ($market->delete())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        }
+
+    }
 }
